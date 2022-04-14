@@ -15,8 +15,10 @@ import { LOGIN } from 'store/reducers/auth';
 import { apiRequest } from 'utils';
 
 const Center = styled('div', {
-  maxWidth: '400px',
+  maxWidth: '100%',
   margin: '0 auto',
+  width: '400px',
+  padding: '0 20px',
 });
 
 export const Login = () => {
@@ -37,7 +39,7 @@ export const Login = () => {
       if (response.status === 'error') {
         enqueue({
           message: response.error,
-        }, DURATION.medium);
+        }, DURATION.small);
       } else {
         dispatch({
           type: LOGIN,
@@ -48,7 +50,7 @@ export const Login = () => {
     } catch(err) {
       enqueue({
         message: 'Something went wrong! Try again later',
-      }, DURATION.medium);
+      }, DURATION.small);
     }
   }, [dispatch, enqueue, history]);
 

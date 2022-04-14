@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
 
-import { styled } from '@gamex/uix';
 import { Button } from '@gamex/uix/lib/button';
 import { Avatar } from '@gamex/uix/lib/avatar';
 import { useSnackbar, DURATION } from '@gamex/uix/lib/snackbar';
@@ -30,7 +29,7 @@ const User = () => {
       enqueue({
         message: auth.event,
         actionMessage: 'Close',
-      }, DURATION.infinite);
+      }, DURATION.small);
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [auth?.event]);
@@ -40,12 +39,12 @@ const User = () => {
     <>
       <Avatar
         name={auth.name}
-        size="scale1000"
+        size="25px"
         src={USER_MAP[auth.name]}
       />
       <Button onClick={logoutHandler}>Logout</Button>
     </>
-  ) : null; 
+  ) : null;
 };
 
 export default User;

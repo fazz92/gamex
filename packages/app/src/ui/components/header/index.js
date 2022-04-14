@@ -13,6 +13,7 @@ const LogoStyle = styled('img', () => ({
 const UserContainer = styled('div', () => ({
   display: 'flex',
   gap: '10px',
+  alignItems: 'center',
 }));
 
 const Header = () => {

@@ -25,11 +25,15 @@ const IMAGE_MAP = {
 };
 
 const Card = ({ item }) => {
-  const CardContainer = styled('div', ({ $theme: { colors } }) => ({
+  const CardContainer = styled('div', ({ $theme: { mediaQuery, colors } }) => ({
     display: 'flex',
+    flexDirection: 'column',
     gap: '15px',
     padding: '20px 0',
     borderBottom: `1px solid ${colors.primaryA}`,
+    [mediaQuery.large]: {
+      flexDirection: 'row'
+    },
   }));
 
   const ButtonContainer = styled('div', () => ({
@@ -72,7 +76,7 @@ const List = ({ search, currentCategory }) => {
         dispatch({ type: GAMES_ERROR });
         enqueue({
           message: response.error,
-        }, DURATION.medium);
+        }, DURATION.small);
       } else {
         dispatch({
           type: GAMES_DONE,
@@ -82,7 +86,7 @@ const List = ({ search, currentCategory }) => {
     } catch(err) {
       enqueue({
         message: 'Something went wrong! Try again later',
-      }, DURATION.medium);
+      }, DURATION.small);
       dispatch({ type: GAMES_ERROR });
     }
 

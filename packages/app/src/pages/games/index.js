@@ -51,7 +51,20 @@ export const Games = () => {
             <List search={search} currentCategory={currentCategory} />
           </FlexGridItem>
           <FlexGridItem
-            overrides={{ Block: { style: { width: '25%' } } }}
+            overrides={{
+              Block: {
+                style: ({ $theme: { mediaQuery, colors } }) => ({
+                  width: '100%',
+                  borderBottom: `1px solid ${colors.primaryA}`,
+                  paddingBottom: '20px',
+                  [mediaQuery.large]: {
+                    width: '25%',
+                    border: 'none',
+                    paddingBottom: 0,
+                  },
+                }),
+              },
+            }}
           >
             <Categories onSelect={onCategorySelect} currentCategory={currentCategory} />
           </FlexGridItem>

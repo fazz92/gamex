@@ -6,7 +6,7 @@ import { Button } from '@gamex/uix/lib/button';
 import { HeadingXSmall } from '@gamex/uix/lib/typography';
 import { useSnackbar, DURATION } from '@gamex/uix/lib/snackbar';
 import { apiRequest } from 'utils';
-import { useAppContext } from 'hooks';
+import { useAppContext, useAuth } from 'hooks';
 import { Root } from 'ui/components/styled-components';
 import { GAME_DETAIL_INIT, GAME_DETAIL_DONE, GAME_DETAIL_ERROR } from 'store/reducers/details';
 import { Menu } from '@gamex/uix/lib/icon';
@@ -40,6 +40,7 @@ export const GameDetails = () => {
   const isLoading = details.loading;
   const isError = details.error;
   const { enqueue } = useSnackbar();
+  useAuth();
 
   const fetchDetails = useCallback(async () => {
     dispatch({ type: GAME_DETAIL_INIT });
@@ -50,7 +51,7 @@ export const GameDetails = () => {
         dispatch({ type: GAME_DETAIL_ERROR });
         enqueue({
           message: response.error,
-        }, DURATION.medium);
+        }, DURATION.small);
       } else {
         dispatch({
           type: GAME_DETAIL_DONE,
@@ -62,7 +63,7 @@ export const GameDetails = () => {
     } catch(err) {
       enqueue({
         message: 'Something went wrong',
-      }, DURATION.medium);
+      }, DURATION.small);
       dispatch({ type: GAME_DETAIL_ERROR });
     }
 

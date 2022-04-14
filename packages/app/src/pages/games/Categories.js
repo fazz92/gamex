@@ -37,7 +37,7 @@ const Categories = ({ onSelect, currentCategory }) => {
         dispatch({ type: CATEGORIES_ERROR });
         enqueue({
           message: response.error,
-        }, DURATION.medium);
+        }, DURATION.small);
       } else {
         dispatch({
           type: CATEGORIES_DONE,
@@ -47,7 +47,7 @@ const Categories = ({ onSelect, currentCategory }) => {
     } catch(err) {
       enqueue({
         message: 'Something went wrong! Try again later',
-      }, DURATION.medium);
+      }, DURATION.small);
       dispatch({ type: CATEGORIES_ERROR });
     }
 
