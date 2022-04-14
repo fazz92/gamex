@@ -41,6 +41,15 @@ const Card = ({ item }) => {
     justifyContent: 'flex-end',
   }));
 
+  const StyledLink = styled(Link, ({ $theme: { mediaQuery } }) => ({
+    width: '100%',
+    display: 'block',
+    [mediaQuery.large]: {
+      width: 'initial',
+      display: 'inline-block',
+    },
+  }));
+
   return (
     <CardContainer>
       <div>
@@ -50,9 +59,21 @@ const Card = ({ item }) => {
         <HeadingXSmall margin={0}>{item.name}</HeadingXSmall>
         <ParagraphSmall>{item.description}</ParagraphSmall>
         <ButtonContainer>
-          <Link to={`/games/${item.code}`}>
-            <Button endEnhancer={() => <ChevronRight size={24} />}>Play</Button>
-          </Link>
+          <StyledLink to={`/games/${item.code}`}>
+            <Button
+              endEnhancer={() => <ChevronRight size={24} />}
+              overrides={{
+                BaseButton: {
+                  style: ({ $theme: { mediaQuery } }) => ({
+                    width: "100%",
+                    [mediaQuery.large]: {
+                      width: 'initial',
+                    },
+                  }),
+                },
+              }}
+            >Play</Button>
+          </StyledLink>
         </ButtonContainer>
       </div>
     </CardContainer>
