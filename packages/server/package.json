@@ -1,0 +1,21 @@
+{
+  "name": "@gamex/server",
+  "version": "1.0.0",
+  "description": "Please note that this is not a comprehensive exercise and you may do it as per your convenience. Please feel free to make any assumptions however please mention them somewhere either in the code or in a README.",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint --report-unused-disable-directives .",
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/comeon-stockholm/comeon-in.git"
+  },
+  "author": "Comeon Group",
+  "license": "ISC",
+  "devDependencies": {
+    "@gamex/eslint-config": "*",
+    "json-server": "^0.17.0"
+  }
+}

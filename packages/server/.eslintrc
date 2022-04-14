@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "@gamex/eslint-config/node"
+  ],
+  "ignorePatterns": [
+    "/lib/",
+    "/node_modules/"
+  ]
+}

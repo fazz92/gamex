@@ -1,0 +1,1 @@
+# Simple JSON server to serve the pages
